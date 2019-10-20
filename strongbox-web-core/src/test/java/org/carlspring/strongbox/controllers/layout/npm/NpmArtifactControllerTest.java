@@ -31,7 +31,9 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class NpmArtifactControllerTest
         extends NpmRestAssuredBaseTest
 {
-    private static final String REPOSITORY_RELEASES = "npm-releases-test";
+    private static final String REPOSITORY_RELEASES_VIEW = "npm-releases-test-view";
+
+    private static final String REPOSITORY_RELEASES_FLOW = "npm-releases-test-flow";
 
     @Override
     @BeforeEach
@@ -44,9 +46,9 @@ public class NpmArtifactControllerTest
     @ExtendWith({ RepositoryManagementTestExecutionListener.class,
                   ArtifactManagementTestExecutionListener.class })
     @Test
-    public void testViewPackage(@NpmRepository(repositoryId = REPOSITORY_RELEASES)
+    public void testViewPackage(@NpmRepository(repositoryId = REPOSITORY_RELEASES_VIEW)
                                 Repository repository,
-                                @NpmTestArtifact(repositoryId = REPOSITORY_RELEASES,
+                                @NpmTestArtifact(repositoryId = REPOSITORY_RELEASES_VIEW,
                                                  id = "npm-test-view",
                                                  versions = "1.0.0",
                                                  scope = "@carlspring")
@@ -80,7 +82,7 @@ public class NpmArtifactControllerTest
     @ExtendWith({ RepositoryManagementTestExecutionListener.class,
                   ArtifactManagementTestExecutionListener.class })
     @Test
-    public void testPackageCommonFlow(@NpmRepository(repositoryId = REPOSITORY_RELEASES)
+    public void testPackageCommonFlow(@NpmRepository(repositoryId = REPOSITORY_RELEASES_FLOW)
                                       Repository repository,
                                       @NpmTestArtifact(id = "npm-test-release",
                                                        versions = "1.0.0",
