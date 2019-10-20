@@ -1,33 +1,34 @@
 package org.carlspring.strongbox.controllers;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.jupiter.api.Assertions.fail;
+import org.carlspring.strongbox.booters.PropertiesBooter;
+import org.carlspring.strongbox.config.IntegrationTest;
+import org.carlspring.strongbox.rest.common.RestAssuredBaseTest;
 
+import javax.inject.Inject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 
-import javax.inject.Inject;
-
-import org.carlspring.strongbox.booters.PropertiesBooter;
-import org.carlspring.strongbox.config.IntegrationTest;
-import org.carlspring.strongbox.rest.common.RestAssuredBaseTest;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * @author Pablo Tirado
  * @author Aditya Srinivasan
  */
-// TODO migrate to https://docs.spring.io/spring-boot/docs/current/actuator-api/html/#loggers after https://github.com/strongbox/strongbox/issues/1046
+// TODO Drop test after migration to Spring Boot Actuator logger (see https://github.com/strongbox/strongbox/issues/1000 and https://github.com/strongbox/strongbox/pull/1440)
+@Disabled
 @IntegrationTest
 public class LoggingManagementControllerTestIT
         extends RestAssuredBaseTest
